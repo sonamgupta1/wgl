@@ -1,0 +1,16 @@
+<ion-view view-title="Signin">
+    <ion-content>
+        <div class="row">
+            <div class="col">
+                <input type="text" ng-model="signin.email" placeholder="email@address.com">
+                <input type="password" ng-model="signin.password" placeholder="password">
+            </div>
+        </div>
+        <div class=" ">
+            <input type="submit" value="Secure login" id="login_submit" data-inline="true" ng-click = "new_page()">
+        </div>
+        <button class="button button-full button-positive" ng-click="LogOut()" ng-hide="logout_view">
+            Log Out
+        </button>
+    </ion-content>
+</ion-view>
