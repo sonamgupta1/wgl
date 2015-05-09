@@ -1,6 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    App Controller      ////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
         console.log("INside app controller")
   // Form data for the login modal
   $scope.loginData = {};
@@ -34,6 +43,12 @@ angular.module('starter.controllers', [])
   };
 })
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Signin Controller      ////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 .controller('SigninCtrl', function($scope,$state) {
         console.log("Inside Sign in controller")
         $scope.signin={};
@@ -43,63 +58,62 @@ angular.module('starter.controllers', [])
 
   }
 })
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Token  Controller      ////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
     .controller('TokenCtrl',function($scope,$state){
         $scope.project_list = function(){
             $state.go('app.projects',{},{reload: true})
 
         }
     })
-    .controller('ProjectCtrl',function($scope,$state){
-        $scope.get_organization = function(){
-            $state.go('app.organization',{},{reload: true})
 
-        }
-//        $scope.get_project_detail = function(){
-//            $state.go('app.project_detail',{},{reload: true})
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Project Controller      ////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    .controller('ProjectCtrl',function($scope,$state){
+//        $scope.get_organization = function(){
+//            $state.go('app.organization',{},{reload: true})
 //
 //        }
+        $scope.get_project_detail = function(){
+            $state.go('app.project_detail',{},{reload: true})
+
+       }
         $scope.project_add = function(){
 
             $state.go('app.add_project',{},{reload: true})
 
 
         }
-        $scope.groups = [];
-        for (var i=0; i<5; i++) {
-            $scope.groups[i] = {
-                name: i,
-                items: []
-            };
-            for (var j=0; j<3; j++) {
-                $scope.groups[i].items.push(i + '-' + j);
-            }
+
+
+        $scope.get_contact_detail = function(){
+
+            $state.go('app.contact_detail',{},{reload: true})
+
         }
 
-        /*
-         * if given group is the selected group, deselect it
-         * else, select the given group
-         */
-        $scope.toggleGroup = function(group) {
+        $scope.contact_add = function(){
+
+            $state.go('app.add_contact',{},{reload: true})
 
 
-            if ($scope.isGroupShown(group)) {
-                $scope.shownGroup = null;
-            } else {
-                $scope.shownGroup = group;
-            }
-        };
-        $scope.isGroupShown = function(group) {
-            return $scope.shownGroup === group;
-        };
+        }
 
-    })
-.controller('AddProjectCtrl',function(){
 
-    })
-.controller('OrganizationCtrl',function($scope,$state){
-        $scope.get_contact = function(){
+        $scope.organization_detail = function(){
 
-            $state.go('app.contact',{},{reload: true})
+            $state.go('app.organization_detail',{},{reload: true})
 
 
         }
@@ -112,7 +126,6 @@ angular.module('starter.controllers', [])
 
         }
 
-
         $scope.groups = [];
         for (var i=0; i<5; i++) {
             $scope.groups[i] = {
@@ -129,6 +142,8 @@ angular.module('starter.controllers', [])
          * else, select the given group
          */
         $scope.toggleGroup = function(group) {
+
+
             if ($scope.isGroupShown(group)) {
                 $scope.shownGroup = null;
             } else {
@@ -138,23 +153,139 @@ angular.module('starter.controllers', [])
         $scope.isGroupShown = function(group) {
             return $scope.shownGroup === group;
         };
+
     })
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    AddProject   Controller      ///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    .controller('AddProjectCtrl',function(){
+
+    })
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Organization  Controller      //////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+//.controller('OrganizationCtrl',function($scope,$state){
+//        $scope.get_contact = function(){
+//
+//            $state.go('app.contact',{},{reload: true})
+//
+//
+//        }
+//
+//
+//        $scope.organization_add = function(){
+//
+//            $state.go('app.add_organization',{},{reload: true})
+//
+//
+//        }
+//
+//
+//        $scope.groups = [];
+//        for (var i=0; i<5; i++) {
+//            $scope.groups[i] = {
+//                name: i,
+//                items: []
+//            };
+//            for (var j=0; j<3; j++) {
+//                $scope.groups[i].items.push(i + '-' + j);
+//            }
+//        }
+//
+//        /*
+//         * if given group is the selected group, deselect it
+//         * else, select the given group
+//         */
+//        $scope.toggleGroup = function(group) {
+//            if ($scope.isGroupShown(group)) {
+//                $scope.shownGroup = null;
+//            } else {
+//                $scope.shownGroup = group;
+//            }
+//        };
+//        $scope.isGroupShown = function(group) {
+//            return $scope.shownGroup === group;
+//        };
+//    })
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    AddOrganization   Controller      //////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
     .controller('AddOrganizationCtrl',function(){
 
     })
 
-.controller('ContactCtrl',function($scope,$state){
-
-        $scope.contact_add = function(){
-
-            $state.go('app.add_contact',{},{reload: true})
 
 
-        }
-})
-.controller('AddOrganizationCtrl',function(){
 
-})
-.controller('AddContactCtrl',function(){
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Contact   Controller      //////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//.controller('ContactCtrl',function($scope,$state){
+//
+//        $scope.contact_add = function(){
+//
+//            $state.go('app.add_contact',{},{reload: true})
+//
+//
+//        }
+//})
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    AddContact     Controller      /////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+    .controller('AddContactCtrl',function(){
+
+    })
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////    ContactDetail     Controller      //////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    .controller('ContactDetailCtrl',function($scope,$state){
+
 
     });

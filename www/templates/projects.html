@@ -7,13 +7,37 @@
                         ng-class="{active: isGroupShown(group)}">
                   <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'" ng-click="toggleGroup(group)"></i>
                   &nbsp;
-                  <label ng-click="get_organization()">Project {{group.name}}</label>
+                  <label ng-click="get_project_detail()">Project {{group.name}}</label>
               </ion-item>
               <ion-item class="item-accordion"
                         ng-repeat="item in group.items"
                         ng-show="isGroupShown(group)">
-                  {{item}}
+
+                  <ion-item class="item-stable"
+                            ng-class="{active: isGroupShown(group)}">
+                      <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'" ng-click="toggleGroup(group)"></i>
+                      &nbsp;
+                      <label ng-click="organization_detail()">organization {{item}}</label>
+                  </ion-item>
+
+
+
+                  <ion-item class="item-accordion"
+                            ng-repeat="item in group.items"
+                            ng-show="isGroupShown(group)">
+                      <label  ng-click="get_contact_detail()"> contact {{item}}</label>
+
+
+
+                  </ion-item>
+                  <button class="button button-full button-positive" ng-click = "contact_add()">
+                      Add Contact
+                  </button>
+                  <button class="button button-full button-positive" ng-click = "organization_add()">
+                      Add Organization
+                  </button>
               </ion-item>
+
           </div>
       </ion-list>
       <button class="button button-full button-positive" ng-click = "project_add()">

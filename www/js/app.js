@@ -30,25 +30,25 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     controller: 'AppCtrl'
   })
 
-  .state('app.organization', {
-    url: "/organization",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/organization.html",
-        controller:"OrganizationCtrl"
-      }
-    }
-  })
+//  .state('app.organization', {
+//    url: "/organization",
+//    views: {
+//      'menuContent': {
+//        templateUrl: "templates/organization.html",
+//        controller:"OrganizationCtrl"
+//      }
+//    }
+//  })
 
-      .state('app.contact', {
-          url: "/contact",
-          views: {
-              'menuContent': {
-                  templateUrl: "templates/contact.html",
-                  controller:"ContactCtrl"
-              }
-          }
-      })
+//      .state('app.contact', {
+//          url: "/contact",
+//          views: {
+//              'menuContent': {
+//                  templateUrl: "templates/contact.html",
+//                  controller:"ContactCtrl"
+//              }
+//          }
+//      })
 
   .state('app.token', {
     url: "/token",
@@ -102,6 +102,16 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
               'menuContent': {
                   templateUrl: "templates/add_contact.html",
                   controller: 'AddContactCtrl'
+              }
+          }
+      })
+
+      .state('app.contact_detail', {
+          url: "/contact_detail",
+          views: {
+              'menuContent': {
+                  templateUrl: "templates/contact_detail.html",
+                  controller: 'ContactDetailCtrl'
               }
           }
       })
